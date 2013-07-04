@@ -1,8 +1,8 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="breakpoint-six lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="breakpoint-six lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="breakpoint-six lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="breakpoint-six"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -15,13 +15,14 @@
     <meta name="breakpoint" content="six" media="(min-width: 768px) and (max-width: 1023px)">
     <meta name="breakpoint" content="eight" media="(min-width: 1024px) and (max-width: 1279px)">
     <meta name="breakpoint" content="ten" media="(min-width: 1280px)">
-
     <!--[if gt IE 8]><!--><script>{{ glob 'app/components/metaquery/metaquery.min.js' }}</script><!--<![endif]-->
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    {{> boilerplate.services }}
   </head>
   <body ng-app="homepageApp">
     {{> boilerplate.shims }}
