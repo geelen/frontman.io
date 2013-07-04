@@ -110,14 +110,15 @@ module.exports = function (grunt) {
       }
     },
     assemble: {
-      options: {
-        data: '<%= yeoman.app %>/config.json'
-      },
       dist: {
+        options: {
+          data: '<%= yeoman.app %>/config.json',
+          partials: '<%= yeoman.app %>/partials/*.hbs'
+        },
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>',
-          src: '{,*/}*.hbs',
+          src: ['{,*/}*.hbs', '!partials/*.hbs'],
           dest: '.tmp/'
         }]
       }
