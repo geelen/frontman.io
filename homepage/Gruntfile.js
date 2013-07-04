@@ -7,6 +7,7 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  grunt.loadNpmTasks('assemble');
 
   // configurable paths
   var yeomanConfig = {
@@ -25,6 +26,10 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
         tasks: ['coffee:dist']
       },
+      assemble: {
+        files: ['<%= yeoman.app %>/{,*/}*.hbs','<%= yeoman.app %>/{,*/}*.json'],
+        tasks: ['assemble:dist']
+      },
       coffeeTest: {
         files: ['test/spec/{,*/}*.coffee'],
         tasks: ['coffee:test']
@@ -35,7 +40,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '{.tmp,<%= yeoman.app %>}/{,*/}*.html',
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -102,6 +107,19 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'karma.conf.js',
         singleRun: true
+      }
+    },
+    assemble: {
+      options: {
+        data: '<%= yeoman.app %>/config.json'
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>',
+          src: '{,*/}*.hbs',
+          dest: '.tmp/'
+        }]
       }
     },
     coffee: {
@@ -264,6 +282,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('server', [
     'clean:server',
+    'assemble:dist',
     'coffee:dist',
     'compass:server',
     'livereload-start',
