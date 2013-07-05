@@ -1,10 +1,41 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+@import compass/css3
+
+*
+  margin: 0
+  padding: 0
+  +box-sizing(border-box)
 
 body
-  font: 400 16px Jubilat
+  font: 400 16px ff-meta-web-pro
 
 h1
   font-size: 4em
-  font-weight: 600
+  font-weight: 700
   .thin
-    font-weight: 100
+    font-weight: 400
+h2
+  font-size: 2.5em
+  font-weight: 700
+
+.hero
+  position: relative
+  min-height: 200px
+  max-height: 600px
+  height: 400px
+  background: url(http://www.latinabloggersconnect.com/wp-content/uploads/2013/01/Fotolia_38595355_Subscription_Monthly_XL.jpg) 100% 50% no-repeat
+  background-size: cover
+  h1
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    text-align: center
+    color: white
+    text-shadow: 0 0 6px black, 0 0 40px black
+
+.marketing-info
+  h2
+    text-align: center
+  width: 80%
+  margin: 0 auto
