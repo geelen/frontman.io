@@ -1,47 +1,6 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="breakpoint-six lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="breakpoint-six lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="breakpoint-six lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="breakpoint-six"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{{config.title}}</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+<div ng-app="homepageApp">
 
-    <meta name="breakpoint" content="two" media="(max-width: 511px)">
-    <meta name="breakpoint" content="four" media="(min-width: 512px) and (max-width: 767px)">
-    <meta name="breakpoint" content="six" media="(min-width: 768px) and (max-width: 1023px)">
-    <meta name="breakpoint" content="eight" media="(min-width: 1024px) and (max-width: 1279px)">
-    <meta name="breakpoint" content="ten" media="(min-width: 1280px)">
-    <!--[if gt IE 8]><!--><script>{{ glob 'app/components/metaquery/metaquery.min.js' }}</script><!--<![endif]-->
+  <!-- Add your site or application content here -->
+  <div class="container" ng-view></div>
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-
-    {{> boilerplate.services }}
-  </head>
-  <body ng-app="homepageApp">
-    {{> boilerplate.shims }}
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view></div>
-
-    <script src="components/angular/angular.js"></script>
-
-    <!-- build:js scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <!-- endbuild -->
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-  </body>
-</html>
+</div>
