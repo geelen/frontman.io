@@ -5,7 +5,9 @@ build:
         name: Build from Homepage
         code: |
           export WERCKER_SOURCE_DIR="$WERCKER_SOURCE_DIR/homepage"
-    - npm-install
+    - geelen/npm-install
+    - geelen/npm-install:
+        options: -g bower
     - script:
         name: Bower install
         code: |
