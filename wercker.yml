@@ -1,13 +1,18 @@
-box: wercker/nodejs
+box: wercker/ubuntu12.04-nodejs0.10
 build:
   steps:
     - script:
-        name: echo nodejs information
-        code: |
-          echo "node version $(node -v) running"
-          echo "npm version $(npm -v) running"
-    - script:
-        name: homepage is our souce
+        name: Build from Homepage
         code: |
           export WERCKER_SOURCE_DIR="$WERCKER_SOURCE_DIR/homepage"
     - npm-install
+    - script:
+        name: Bower install
+        code: |
+          bower install
+    - grunt
+      tasks: "build"
+    - script:
+        name: Package from DIST
+        code: |
+          export WERCKER_ROOT="$WERCKER_SOURCE_DIR/dist"
