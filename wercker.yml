@@ -15,6 +15,6 @@ build:
     - grunt:
         tasks: "build"
     - script:
-        name: Package from DIST
+        name: Copy dist to output
         code: |
-          export WERCKER_ROOT="$WERCKER_SOURCE_DIR/dist"
+          cp -R $WERCKER_SOURCE_DIR/dist/* $WERCKER_OUTPUT_DIR/
