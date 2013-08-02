@@ -9,5 +9,5 @@ build:
     - script:
         name: homepage is our souce
         code: |
-          export WERCKER_SOURCE_DIR='$WERCKER_SOURCE_DIR/homepage'
+          export WERCKER_SOURCE_DIR="$WERCKER_SOURCE_DIR/homepage"
     - npm-install
