@@ -7,7 +7,7 @@ build:
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
     - script:
-        name: jump into homepage
+        name: homepage is our souce
         code: |
-          cd homepage
+          export WERCKER_SOURCE_DIR='$WERCKER_SOURCE_DIR/homepage'
     - npm-install
