@@ -34,9 +34,9 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.coffee'],
         tasks: ['coffee:test']
       },
-      compass: {
+      sass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass']
+        tasks: ['sass']
       },
       livereload: {
         files: [
@@ -144,18 +144,15 @@ module.exports = function (grunt) {
         }]
       }
     },
-    compass: {
-      options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
-        imagesDir: '<%= yeoman.app %>/images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/components',
-        relativeAssets: true
-      },
-      dist: {},
-      server: {
+    sass: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: '{,*/}*.s{a,c}ss',
+          dest: '.tmp/styles',
+          ext: '.css'
+        }],
         options: {
           debugInfo: true
         }
@@ -286,7 +283,7 @@ module.exports = function (grunt) {
     'clean:server',
     'assemble:dist',
     'coffee:dist',
-    'compass:server',
+    'sass:dist',
     'livereload-start',
     'connect:livereload',
     'open',
@@ -296,7 +293,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'coffee',
-    'compass',
+    'sass:dist',
     'connect:test',
     'karma'
   ]);
@@ -306,7 +303,7 @@ module.exports = function (grunt) {
     'jshint',
 //    'test',
     'coffee',
-    'compass:dist',
+    'sass:dist',
     'useminPrepare',
     'imagemin',
     'cssmin',
