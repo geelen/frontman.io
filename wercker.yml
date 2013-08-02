@@ -7,11 +7,11 @@ build:
           export WERCKER_SOURCE_DIR="$WERCKER_SOURCE_DIR/homepage"
     - glenmaddern/npm-install
     - glenmaddern/npm-install:
-        options: -g bower
+        options: bower@~0.x
     - script:
         name: Bower install
         code: |
-          bower install
+          node_modules/bower/bin/bower install
     - grunt:
         tasks: "build"
     - script:
