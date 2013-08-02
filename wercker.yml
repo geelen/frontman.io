@@ -10,8 +10,8 @@ build:
         name: Bower install
         code: |
           bower install
-    - grunt
-      tasks: "build"
+    - grunt:
+        tasks: "build"
     - script:
         name: Package from DIST
         code: |
