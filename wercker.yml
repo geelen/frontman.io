@@ -5,8 +5,8 @@ build:
         name: Build from Homepage
         code: |
           export WERCKER_SOURCE_DIR="$WERCKER_SOURCE_DIR/homepage"
-    - glenmaddern/npm-install
-    - glenmaddern/npm-install:
+    - npm-install
+    - npm-install:
         options: bower@~0.x
     - script:
         name: Bower install
